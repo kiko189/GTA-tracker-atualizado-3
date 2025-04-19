@@ -1,79 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA91AoWZFOG1EbLz6p5OjfJd-Us-S9x4YQ",
-  authDomain: "gta-tracker-67774.firebaseapp.com",
-  projectId: "gta-tracker-67774",
-  storageBucket: "gta-tracker-67774.firebasestorage.app",
-  messagingSenderId: "2917447473",
-  appId: "1:2917447473:web:dd5e89524cf5ec1f5fa210",
-  measurementId: "G-MEPR8C6FZV"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-  <meta charset="UTF-8" />
-  <title>Login - GTA Tracker</title>
-  <style>
-    body {
-      font-family: Arial;
-      background-color: #111;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    input {
-      margin: 5px;
-      padding: 8px;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #c00;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    #error {
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+    <!-- Adiciona o Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
 </head>
 <body>
-  <h1>Login - GTA Tracker</h1>
-  <input type="text" id="username" placeholder="Username" />
-  <input type="password" id="password" placeholder="Password" />
-  <button onclick="login()">Entrar</button>
-  <div id="error"></div>
 
-  <script>
-    function login() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
+    <!-- Formulário de Login -->
+    <form id="loginForm">
+        <input id="loginEmail" placeholder="Email" type="email" required><br>
+        <input id="loginPassword" placeholder="Password" type="password" required><br>
+        <button type="submit">Entrar</button>
+    </form>
 
-      const correctUser = "gta_boss";
-      const correctPass = "1234";
+    <!-- Botão de Logout -->
+    <button id="logoutButton" style="display:none;" onclick="logout()">Logout</button>
 
-      if (user === correctUser && pass === correctPass) {
-        window.location.href = "dashboard.html";
-      } else {
-        document.getElementById("error").innerText = "Username ou password errados, pá.";
-      }
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
