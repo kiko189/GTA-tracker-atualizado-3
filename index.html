@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - GTA Tracker</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input {
+      margin: 5px;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #c00;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login - GTA Tracker</h1>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="login()">Entrar</button>
+  <div id="error"></div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      const correctUser = "gta_boss";
+      const correctPass = "1234";
+
+      if (user === correctUser && pass === correctPass) {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error").innerText = "Username ou password errados, pá.";
+      }
+    }
+  </script>
+</body>
+</html>
